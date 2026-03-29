@@ -10,13 +10,12 @@ Solvfun Web is the landing page for Solvfun App — a Solana self-hosted wallet 
 
 ```
 solvfun-web/
-├── web/              ← Next.js 项目源码（所有代码在这里）
-├── docs/             ← 项目规划、TODO
-├── design/           ← 设计规范、参考图片
-└── CLAUDE.md
+├── src/              ← Next.js App Router 页面和组件
+├── public/           ← 静态资源
+├── CLAUDE.md
+├── package.json
+└── tsconfig.json
 ```
-
-All commands below should be run from `web/` directory.
 
 ## Tech Stack
 
@@ -30,7 +29,6 @@ All commands below should be run from `web/` directory.
 ## Commands
 
 ```bash
-cd web/
 bun install          # Install dependencies
 bun run dev          # Start dev server
 bun run build        # Production build
@@ -39,7 +37,7 @@ bun run lint         # Run linter
 
 ## Typography System
 
-Three font families with strict role separation (see `design/solvfun-typography-spec.md` for full spec):
+Three font families with strict role separation:
 
 | Token | Font | Role |
 |-------|------|------|
@@ -69,7 +67,3 @@ Additional pages: `/privacy`, `/terms`, optionally `/download`
 - **Motion**: Orchestrated page-load animations, scroll-triggered sections, 200-400ms durations
 - **Mobile-first**: Hero centers, grids collapse to single column
 
-## Planning Documents
-
-- `docs/landing-page-plan.md` — Project roadmap and content structure (Chinese)
-- `design/solvfun-typography-spec.md` — Complete typography system with type scales and implementation guidance
