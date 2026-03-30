@@ -41,7 +41,7 @@ function ComingSoonButton({
 
 export default function DownloadButtons() {
   return (
-    <div className="mx-auto flex max-w-md gap-4">
+    <div className="mx-auto flex max-w-md flex-col gap-4 sm:flex-row">
       <ComingSoonButton
         icon={<AndroidIcon />}
         label="Download APK"

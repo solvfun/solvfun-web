@@ -3,26 +3,10 @@
 import { motion } from "framer-motion";
 import DownloadButtons from "./DownloadButtons";
 
-function FloatingOrb({
-  className,
-  delay = 0,
-}: {
-  className: string;
-  delay?: number;
-}) {
+function FloatingOrb({ className }: { className: string }) {
   return (
-    <motion.div
-      className={`absolute rounded-full blur-[120px] ${className}`}
-      animate={{
-        scale: [1, 1.2, 1],
-        opacity: [0.3, 0.6, 0.3],
-      }}
-      transition={{
-        duration: 6,
-        repeat: Infinity,
-        delay,
-        ease: "easeInOut",
-      }}
+    <div
+      className={`absolute rounded-full blur-[120px] opacity-45 ${className}`}
     />
   );
 }
@@ -100,18 +84,9 @@ export default function HeroSection() {
       <ParticleField />
 
       {/* Glow orbs */}
-      <FloatingOrb
-        className="left-1/4 top-1/4 h-[400px] w-[400px] bg-brand/20"
-        delay={0}
-      />
-      <FloatingOrb
-        className="right-1/4 top-1/3 h-[300px] w-[300px] bg-emerald-500/15"
-        delay={2}
-      />
-      <FloatingOrb
-        className="left-1/2 bottom-1/4 h-[350px] w-[350px] bg-brand/10"
-        delay={4}
-      />
+      <FloatingOrb className="left-1/4 top-1/4 h-[400px] w-[400px] bg-brand/20" />
+      <FloatingOrb className="right-1/4 top-1/3 h-[300px] w-[300px] bg-emerald-500/15" />
+      <FloatingOrb className="left-1/2 bottom-1/4 h-[350px] w-[350px] bg-brand/10" />
 
       <div className="mx-auto w-full max-w-4xl text-center">
         <motion.h1

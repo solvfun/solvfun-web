@@ -8,7 +8,7 @@ export const metadata = {
 export default function TermsPage() {
   return (
     <>
-      <Header />
+      <Header logoOnly />
       <main className="px-5 py-16">
         <article className="mx-auto max-w-3xl">
           <h1 className="heading-xl mb-4 text-4xl">Terms of Use</h1>
