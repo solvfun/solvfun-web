@@ -13,13 +13,13 @@ export const siteConfig = {
   downloads: {
     apk: {
       label: "Download APK",
-      href: "#apk-download",
+      href: "https://dl.solv.fun/latest.apk",
       enabled: true,
     },
     googlePlay: {
       label: "Google Play",
       href: "#google-play",
-      enabled: true,
+      enabled: false,
     },
   },
 

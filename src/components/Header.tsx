@@ -34,14 +34,13 @@ export default function Header({ logoOnly = false }: { logoOnly?: boolean }) {
                   {item.label}
                 </a>
               ))}
-              <div className="group relative overflow-hidden rounded-xl bg-brand px-6 py-2.5 cursor-pointer transition-all duration-200 hover:scale-[1.03]">
-                <span className="flex items-center font-semibold text-text-on-brand transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-2">
-                  Download
-                </span>
-                <span className="absolute inset-0 flex items-center justify-center font-semibold text-text-on-brand opacity-0 transition-all duration-300 group-hover:opacity-100">
-                  Coming Soon
-                </span>
-              </div>
+              <a
+                href={siteConfig.downloads.apk.href}
+                rel="noopener"
+                className="rounded-xl bg-brand px-6 py-2.5 font-semibold text-text-on-brand transition-all duration-200 hover:scale-[1.03]"
+              >
+                Download
+              </a>
             </nav>
 
             {/* Mobile hamburger */}
@@ -78,14 +77,14 @@ export default function Header({ logoOnly = false }: { logoOnly?: boolean }) {
                 {item.label}
               </a>
             ))}
-            <div className="group relative overflow-hidden rounded-xl bg-brand px-6 py-2.5 cursor-pointer text-center transition-all duration-200">
-              <span className="flex items-center justify-center font-semibold text-text-on-brand transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-2">
-                Download
-              </span>
-              <span className="absolute inset-0 flex items-center justify-center font-semibold text-text-on-brand opacity-0 transition-all duration-300 group-hover:opacity-100">
-                Coming Soon
-              </span>
-            </div>
+            <a
+              href={siteConfig.downloads.apk.href}
+              onClick={() => setMobileOpen(false)}
+              rel="noopener"
+              className="rounded-xl bg-brand px-6 py-2.5 text-center font-semibold text-text-on-brand transition-all duration-200"
+            >
+              Download
+            </a>
           </div>
         </nav>
       )}

@@ -3,7 +3,7 @@ const steps = [
     step: "01",
     title: "Download the App",
     description:
-      "Grab the APK or install from Google Play. iOS coming soon.",
+      "Grab the APK straight from our site. Google Play and iOS coming soon.",
   },
   {
     step: "02",
