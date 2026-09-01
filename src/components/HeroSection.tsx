@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
 import DownloadButtons from "./DownloadButtons";
 
 function FloatingOrb({ className }: { className: string }) {
@@ -35,6 +33,8 @@ function seededRandom(seed: number) {
   return x - Math.floor(x);
 }
 
+// 粒子的漂浮动画在 globals.css 的 `.hero-particle` / `@keyframes particle-float`，
+// 每个粒子只通过 inline style 覆盖自己的 duration / delay。
 function ParticleField() {
   const r = (seed: number, mul: number, add: number) =>
     Math.round(seededRandom(seed) * mul * 100 + add * 100) / 100;
@@ -51,29 +51,31 @@ function ParticleField() {
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">
       {particles.map((p) => (
-        <motion.div
+        <div
           key={p.id}
-          className="absolute rounded-full bg-brand"
+          className="hero-particle absolute rounded-full bg-brand"
           style={{
             left: p.left,
             top: p.top,
             width: p.size,
             height: p.size,
-          }}
-          animate={{
-            opacity: [0, 0.8, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: p.duration,
-            repeat: Infinity,
-            delay: p.delay,
-            ease: "easeInOut",
+            animationDuration: `${p.duration}s`,
+            animationDelay: `${p.delay}s`,
           }}
         />
       ))}
     </div>
   );
+}
+
+// 入场动画同样是纯 CSS（`.hero-enter` / `@keyframes hero-enter`）。
+// 这样标题在首帧就开始淡入，而不是等 JS 下载并水合之后才出现。
+function enter(y: number, duration: number, delay: number): CSSProperties {
+  return {
+    "--enter-y": `${y}px`,
+    animationDuration: `${duration}s`,
+    animationDelay: `${delay}s`,
+  } as CSSProperties;
 }
 
 export default function HeroSection() {
@@ -89,33 +91,25 @@ export default function HeroSection() {
       <FloatingOrb className="left-1/2 bottom-1/4 h-[350px] w-[350px] bg-brand/10" />
 
       <div className="mx-auto w-full max-w-4xl text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="heading-xl mb-8 text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
+        <h1
+          className="hero-enter heading-xl mb-8 text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
+          style={enter(30, 0.7, 0.15)}
         >
           Swap Fast.
           <br />
           <span className="text-brand">Stay Free.</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mx-auto mb-12 max-w-2xl text-lg text-text-secondary sm:text-xl md:text-2xl"
+        <p
+          className="hero-enter mx-auto mb-12 max-w-2xl text-lg text-text-secondary sm:text-xl md:text-2xl"
+          style={enter(20, 0.6, 0.3)}
         >
           Buy and sell meme coins like lightning.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-        >
+        <div className="hero-enter" style={enter(20, 0.6, 0.45)}>
           <DownloadButtons />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

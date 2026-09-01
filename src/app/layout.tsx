@@ -9,11 +9,14 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["600", "700"],
 });
 
+// Manrope 只给价格数字（.text-price）用。目前没有任何页面渲染价格，
+// 所以不预加载：@font-face 仍然声明，第一次真正用到时浏览器才会下载。
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-price",
   display: "swap",
   weight: ["500", "600"],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -35,12 +38,6 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${manrope.variable}`}
     >
-      <head>
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body className="min-h-screen bg-bg-base text-text-primary antialiased">
         {children}
       </body>
