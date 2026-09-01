@@ -28,7 +28,13 @@ export default function Footer() {
               href={siteConfig.legal.terms}
               className="text-sm text-text-secondary transition-colors hover:text-text-primary"
             >
-              Terms of Use
+              Terms of Service
+            </a>
+            <a
+              href={siteConfig.legal.fees}
+              className="text-sm text-text-secondary transition-colors hover:text-text-primary"
+            >
+              Fees
             </a>
           </div>
         </div>

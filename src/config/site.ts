@@ -33,6 +33,7 @@ export const siteConfig = {
   legal: {
     privacy: "/privacy",
     terms: "/terms",
+    fees: "/fees",
   },
 
   copyright: `\u00A9 2025 Solvfun. All rights reserved.`,
