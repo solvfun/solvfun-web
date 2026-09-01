@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -19,6 +20,18 @@ const manrope = Manrope({
   preload: false,
 });
 
+// Satoshi 自托管（文件来自 Fontshare，ITF Free Font License 允许网站自托管）。
+// 之前从 api.fontshare.com 拉 CSS 再拉字体，是一条跨域的阻塞渲染链。
+const satoshi = localFont({
+  src: [
+    { path: "../fonts/Satoshi-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/Satoshi-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/Satoshi-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-satoshi",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Solvfun - Self-Custody Solana Wallet for Meme Trading",
   description:
@@ -36,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${manrope.variable}`}
+      className={`${spaceGrotesk.variable} ${manrope.variable} ${satoshi.variable}`}
     >
       <body className="min-h-screen bg-bg-base text-text-primary antialiased">
         {children}

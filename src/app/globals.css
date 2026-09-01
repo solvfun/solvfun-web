@@ -69,7 +69,7 @@
   --color-accent-heat: var(--color-accent-heat);
 
   --font-brand: var(--font-brand);
-  --font-ui: var(--font-sans);
+  --font-ui: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
   --font-price: var(--font-price);
 }
 
