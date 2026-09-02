@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "solvfun-web",
+  "compatibility_date": "2026-05-01",
+  // 纯静态站：没有 main 入口，Worker 脚本不存在，所有请求都直接命中静态
+  // 资源（这类请求在 Workers 上免费且不限量）。
+  "assets": {
+    "directory": "./out",
+    // next build 的静态导出会生成 out/404.html，让它来兜未匹配的路径。
+    "not_found_handling": "404-page"
+  }
+}
