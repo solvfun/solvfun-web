@@ -7,6 +7,9 @@ export const metadata = {
   title: "Fees - Solvfun",
   description:
     "What Solvfun charges: platform fee on trades, which trades are free, Solana network costs, and gas sponsorship.",
+  alternates: {
+    canonical: "/fees",
+  },
 };
 
 export default function FeesPage() {

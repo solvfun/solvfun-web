@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Manrope } from "next/font/google";
 import localFont from "next/font/local";
+import { siteConfig } from "@/config/site";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,10 +33,31 @@ const satoshi = localFont({
   display: "swap",
 });
 
+const title = "Solvfun - Self-Custody Solana Wallet for Meme Trading";
+
 export const metadata: Metadata = {
-  title: "Solvfun - Self-Custody Solana Wallet for Meme Trading",
-  description:
-    "Trade meme coins on Solana with full control of your keys. Lightning-fast swaps, self-custody security, and a seamless mobile experience.",
+  // solv.fun 是主域，solvfun.com 和两个 www 都 301 到这里。metadataBase 让
+  // 各页面的 canonical 和 og:image 都解析成绝对地址。
+  metadataBase: new URL(siteConfig.url),
+  title,
+  description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: siteConfig.name,
+    title,
+    description: siteConfig.description,
+    images: ["/logo.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description: siteConfig.description,
+    images: ["/logo.png"],
+  },
   icons: {
     icon: "/logo.png",
   },

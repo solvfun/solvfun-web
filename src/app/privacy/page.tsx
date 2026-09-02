@@ -7,6 +7,9 @@ export const metadata = {
   title: "Privacy Policy - Solvfun",
   description:
     "How Solvfun handles your data: keys never leave your device, no accounts, and a plain-language account of every service that sees anything.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

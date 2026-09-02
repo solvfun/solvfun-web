@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Buy and sell meme coins like lightning.",
   description:
     "Trade meme coins on Solana with full control of your keys. Lightning-fast swaps, self-custody security, and a seamless mobile experience.",
-  url: "https://solvfun.com",
+  url: "https://solv.fun",
 
   nav: [
     { label: "Features", href: "#features" },
