@@ -34,3 +34,6 @@ skills-lock.json
 
 # Vercel
 .vercel
+
+# wrangler pages dev 的本地缓存
+.wrangler/
